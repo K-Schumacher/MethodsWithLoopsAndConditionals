@@ -21,6 +21,9 @@ namespace MethodsWithLoopsAndConditionals
 
             //Write a method to read the age of a candidate and determine whether they can vote. Hint: use Parse()... or the safer TryParse() for an extra challenge!! - DONE
 
+
+
+
             Console.WriteLine($"Prepare to count.");
             PressEnter();
             Counter();
@@ -30,6 +33,77 @@ namespace MethodsWithLoopsAndConditionals
             PressEnter();
             CounterThree();
             PressEnter();
+
+            int userNumberOne = GetUserNumber();
+            int userNumberTwo = GetUserNumber();
+            bool areEqual = EqualChecker(userNumberOne, userNumberTwo);
+            Console.WriteLine($"{userNumberOne} is equal to {userNumberTwo}: {areEqual}.");
+            PressEnter();
+
+            int userNumberThree = GetUserNumber();
+            EvenOrOdd(userNumberThree);
+            PressEnter();
+
+            Console.WriteLine($"Give me a number and I'll tell you if it's between -10 and 10.");
+            int userNumberFour = GetUserNumber();
+            BewtweenTens(userNumberFour);
+            PressEnter();
+
+            Table();
+            PressEnter();
+        }
+
+        private static void Table()
+        {
+            int product;
+            int userInput;
+
+            Console.WriteLine("Pick a number between 1 and 12.");
+
+            userInput = int.Parse(Console.ReadLine());
+            for (int i = 1; i <= 12; i++)
+            {
+                product = userInput * i;
+                Console.WriteLine($"{userInput} * {i} = {product}");
+            }
+        }
+
+        private static bool BewtweenTens(int i)
+        {
+            if (i <= 10 && i >= -10)
+            {
+                Console.WriteLine($"{i} is between -10 and 10.");
+                return true;
+            }
+            Console.WriteLine($"{i} is not between -10 and 10.");
+            return false;
+        }
+
+        private static void EvenOrOdd(int userNumber)
+        {
+            if (userNumber % 2 == 0)
+            {
+                Console.WriteLine($"{userNumber} is even.");
+            }else if(userNumber % 2 != 0)
+            {
+                Console.WriteLine($"{userNumber} is odd.");
+            }else if(userNumber == 0)
+            {
+                Console.WriteLine($"You could really just use Google, you know....");
+            }
+        }
+
+        private static int GetUserNumber()
+        {
+            Console.Write($"Give me a number: ");
+            int userNumber = int.Parse(Console.ReadLine());
+
+            return userNumber;
+        }
+
+        private static bool EqualChecker(int num1, int num2)
+        {
+            return num1 == num2;
         }
 
         private static void CounterThree()
